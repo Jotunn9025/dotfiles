@@ -7,6 +7,8 @@ let
     "firefox"
     "steam"
     "easy-effects"
+    "discord"
+    "gimp"
   ];
 
   contents = builtins.readDir ./.;
