@@ -10,9 +10,16 @@
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     };
 
-    outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs : {
+    outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs : 
+    let
+        system = "x86_64-linux";
+        pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+        };
+    in {
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            inherit system; 
             specialArgs = { inherit inputs; };  
             modules = [
                 ./configuration.nix
@@ -23,5 +30,7 @@
                 }
             ];
         };
+        packages.${system}.python = import ./modules/shells/python/default.nix { inherit pkgs; };
+        devShells.${system}.python = import ./modules/shells/python/default.nix { inherit pkgs; };
     };
 }
