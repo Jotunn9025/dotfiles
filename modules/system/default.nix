@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  python-fhs-env = import ../shells/python/default.nix { inherit pkgs; };
+  pyshell   = import ../shells/python/default.nix { inherit pkgs; };
+  nodeshell = import ../shells/nodejs/default.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -25,9 +26,7 @@ in
   nix.settings.auto-optimise-store = true;
 
   environment.systemPackages = [
-    python-fhs-env
-   (pkgs.writeShellScriptBin "pyshell" ''
-      exec ${python-fhs-env}/bin/python-fhs "$@"
-    '')
+    pyshell
+    nodeshell
   ];
 }

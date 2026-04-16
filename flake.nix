@@ -30,7 +30,13 @@
                 }
             ];
         };
-        packages.${system}.python = import ./modules/shells/python/default.nix { inherit pkgs; };
-        devShells.${system}.python = import ./modules/shells/python/default.nix { inherit pkgs; };
+        packages.${system} = {
+            python = import ./modules/shells/python/default.nix { inherit pkgs; };
+            node   = import ./modules/shells/nodejs/default.nix { inherit pkgs; };
+        };
+        devShells.${system} = {
+            python = self.packages.${system}.python;
+            node   = self.packages.${system}.node;
+        };
     };
 }
