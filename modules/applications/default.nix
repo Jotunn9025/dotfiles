@@ -6,6 +6,7 @@ let
     "vscode"
     "firefox"
     "steam"
+    "easy-effects"
   ];
 
   contents = builtins.readDir ./.;

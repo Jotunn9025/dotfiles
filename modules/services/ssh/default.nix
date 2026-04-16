@@ -21,7 +21,7 @@ in {
     };
 
     users.users.youhan.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPajKc66vmIkgWXhTteGP5zRmk6TSLC2AqhjMj7PcYW6 youhan@oneplus"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPajKc66vmIkgWXhTteGP5zRmk6TSLC2AqhjMj7PcYW5 youhan@oneplus"
     ];
   };
 }

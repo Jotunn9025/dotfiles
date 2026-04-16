@@ -3,6 +3,7 @@
 let
   enabledServices = [
     "ssh"
+    "tailscale"
   ];
 
   contents = builtins.readDir ./.;

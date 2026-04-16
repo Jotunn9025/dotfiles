@@ -2,9 +2,9 @@
 
 with lib;
 let
-  cfg = config.apps.easyeffects;
+  cfg = config.apps."easy-effects"; 
 in {
-  options.apps.easyeffects = {
+  options.apps."easy-effects" = {
     enable = mkEnableOption "EasyEffects Audio Processor";
   };
 
@@ -12,10 +12,9 @@ in {
     programs.dconf.enable = true;
 
     home-manager.users.youhan = {
-      services.easyeffects = {
-        enable = true;
-        autoStart = true;
-      };
+      services.easyeffects.enable = true;
+      
+      home.packages = [ pkgs.easyeffects ];
     };
   };
 }
