@@ -29,10 +29,8 @@
     settings = {
       user = {
         name = "Jotunn9025";
-        email = "youyouhanlalwani@gmail.com";
+        email = "youhanlalwani@gmail.com";
       };
-    };
-    extraConfig = {
       init.defaultBranch = "main";
       core.editor = "code --wait";
     };
