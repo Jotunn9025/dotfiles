@@ -29,6 +29,11 @@ in {
         };
       };
     };
+    
+    environment.sessionVariables = {
+      TERMINAL = "kitty";
+    };
+
   };
 
 }

@@ -17,6 +17,7 @@
       zip
       rar
       p7zip
+      kitty
     ];
   };
 }
