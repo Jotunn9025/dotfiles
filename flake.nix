@@ -8,6 +8,7 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+        nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
     outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs : 

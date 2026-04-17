@@ -10,6 +10,7 @@ let
     "discord"
     "gimp"
     "ytmdesktop"
+    "lutris"
   ];
 
   contents = builtins.readDir ./.;
