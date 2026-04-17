@@ -11,6 +11,7 @@ let
     "gimp"
     "ytmdesktop"
     "lutris"
+    "onlyoffice"
   ];
 
   contents = builtins.readDir ./.;
