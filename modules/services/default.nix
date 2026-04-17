@@ -4,6 +4,7 @@ let
   enabledServices = [
     "ssh"
     "tailscale"
+    "flatpak"
   ];
 
   contents = builtins.readDir ./.;
@@ -13,5 +14,5 @@ in
 {
   imports = imports;
 
-  services = lib.genAttrs enabledServices (name: { enable = true; });
+  modules.services = lib.genAttrs enabledServices (name: { enable = true; });
 }

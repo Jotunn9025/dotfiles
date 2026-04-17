@@ -1,11 +1,11 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 let
-  cfg = config.services.ssh;
+  cfg = config.modules.services.ssh;
 in {
-  options.services.ssh = {
-    enable = mkEnableOption "Secure SSH Daemon";
+  options.modules.services.ssh = {
+    enable = mkEnableOption "SSH";
   };
 
   config = mkIf cfg.enable {
@@ -15,7 +15,6 @@ in {
 
       settings = {
         PermitRootLogin = "no";
-        # 1. Disable passwords. Keys only!
         PasswordAuthentication = false; 
       };
     };

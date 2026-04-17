@@ -1,8 +1,16 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
-{
-  config = mkIf config.services.tailscale.enable {
+let
+  cfg = config.modules.services.tailscale;
+in {
+  options.modules.services.tailscale = {
+    enable = mkEnableOption "Tailscale";
+  };
+
+  config = mkIf cfg.enable {
+    services.tailscale.enable = true;
+    
     services.tailscale.useRoutingFeatures = "both";
 
     networking.firewall = {

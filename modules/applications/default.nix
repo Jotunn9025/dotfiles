@@ -9,6 +9,7 @@ let
     "easy-effects"
     "discord"
     "gimp"
+    "ytmdesktop"
   ];
 
   contents = builtins.readDir ./.;
