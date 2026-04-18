@@ -12,6 +12,7 @@ let
     "ytmdesktop"
     "lutris"
     "onlyoffice"
+    "minecraft"
   ];
 
   contents = builtins.readDir ./.;
