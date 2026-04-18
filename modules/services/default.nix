@@ -5,6 +5,7 @@ let
     "ssh"
     "tailscale"
     "flatpak"
+    "mullvad"
   ];
 
   contents = builtins.readDir ./.;

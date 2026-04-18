@@ -18,6 +18,8 @@ in {
       pkgs.wineWowPackages.stable
       pkgs.winetricks
       pkgs.vulkan-tools
+      pkgs.vkd3d
+      pkgs.vkd3d-proton
     ];
   };
 }
