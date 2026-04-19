@@ -13,6 +13,9 @@ let
     "lutris"
     "onlyoffice"
     "minecraft"
+    "todoist"
+    "conky"
+    "todo-cli"
   ];
 
   contents = builtins.readDir ./.;
