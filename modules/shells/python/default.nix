@@ -14,6 +14,8 @@ let
       glibc
       zlib
       libffi
+      libavif
+      libavif.dev
       openssl
       cudaPackages.cudatoolkit
       linuxPackages.nvidia_x11
