@@ -1,6 +1,8 @@
-{ pkgs }:
+{ config, lib, pkgs, ... }:
 
 let
+  cfg = config.system.shells.python;
+
   python-fhs-env = pkgs.buildFHSEnv {
     name = "python-fhs";
     targetPkgs = pkgs: with pkgs; [
@@ -37,8 +39,16 @@ let
     
     runScript = "bash --login";
   };
-in
 
-pkgs.writeShellScriptBin "pyshell" ''
-  exec ${python-fhs-env}/bin/python-fhs "$@"
-''
+  pyshell = pkgs.writeShellScriptBin "pyshell" ''
+    exec ${python-fhs-env}/bin/python-fhs "$@"
+  '';
+in {
+  options.system.shells.python = {
+    enable = lib.mkEnableOption "Python FHS Environment Shell";
+  };
+
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ pyshell ];
+  };
+}

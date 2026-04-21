@@ -8,6 +8,7 @@
     ./modules/system
     ./modules/packages.nix
     ./modules/services
+    ./modules/shells
   ];
 
   # Bootloader

@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
 
-let
-  pyshell   = import ../shells/python/default.nix { inherit pkgs; };
-  nodeshell = import ../shells/nodejs/default.nix { inherit pkgs; };
-in
 {
   imports = [
     ./desktop
@@ -24,9 +20,4 @@ in
     options = "--delete-older-than 14d";
   };
   nix.settings.auto-optimise-store = true;
-
-  environment.systemPackages = [
-    pyshell
-    nodeshell
-  ];
 }
