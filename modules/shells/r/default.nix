@@ -10,7 +10,12 @@ let
       dplyr            
       forecast         
       tseries          
-      languageserver   
+      languageserver
+      reshape2
+      syuzhet
+      wordcloud2
+      tm
+      NLP
       # httpgd apparently broken upstream rn           
       jsonlite
       rlang

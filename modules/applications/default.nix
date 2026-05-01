@@ -16,6 +16,7 @@ let
     "todoist"
     "conky"
     "todo-cli"
+    "antigravity"
   ];
 
   contents = builtins.readDir ./.;

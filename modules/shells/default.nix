@@ -5,7 +5,7 @@
     ./r
   ];
 
-  system.shells.nodejs.enable = false;
+  system.shells.nodejs.enable = true;
   system.shells.python.enable = true;
-  system.shells.r.enable = true; 
+  system.shells.r.enable = false; 
 }

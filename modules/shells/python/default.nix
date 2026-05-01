@@ -20,10 +20,36 @@ let
       libavif.dev
       openssl
       cudaPackages.cudatoolkit
+      cudaPackages.cudnn
+      cudaPackages.libcublas
+      cudaPackages.libcusparse
+      cudaPackages.libcusolver
       linuxPackages.nvidia_x11
       libGL
       libGLU
       xorg.libX11
+      cairo
+      cairo.dev        
+      xorg.libXrender
+      xorg.libXext
+      xorg.libxcb
+      mesa
+      pkg-config
+      freetype
+      libpng
+      xorg.libxcb.dev
+      xorg.xcbutilrenderutil
+      xorg.xcbutilrenderutil.dev
+      xorg.libX11.dev
+      glib
+      libsecret
+      libuuid
+      e2fsprogs
+      atk
+      at-spi2-atk
+      xorg.libXcursor
+      xorg.libXinerama
+      xorg.libXi
     ];
 
     multiPkgs = pkgs: with pkgs; [
@@ -33,7 +59,9 @@ let
     profile = ''
       export LD_LIBRARY_PATH="/run/opengl-driver/lib:/run/opengl-driver-32/lib:$LD_LIBRARY_PATH"
       export CUDA_PATH=${pkgs.cudaPackages.cudatoolkit}
-      export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig:$PKG_CONFIG_PATH"
+      export CPATH="${pkgs.xorg.libX11.dev}/include:${pkgs.xorg.xorgproto}/include:$CPATH"
+      export PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig:${pkgs.cairo.dev}/lib/pkgconfig:${pkgs.libpng.dev}/lib/pkgconfig:$PKG_CONFIG_PATH"
+      export LD_PRELOAD="${pkgs.gperftools}/lib/libtcmalloc.so"
       export PS1="(python-fhs) \w -> "
     '';
     
