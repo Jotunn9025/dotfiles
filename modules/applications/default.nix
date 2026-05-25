@@ -16,7 +16,9 @@ let
     "todoist"
     "conky"
     "todo-cli"
-    "antigravity"
+    #"antigravity"
+    #"anki"
+    #"calibre"
   ];
 
   contents = builtins.readDir ./.;

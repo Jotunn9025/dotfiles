@@ -7,11 +7,11 @@ let
     #!/bin/bash
     
     TOKEN_FILE="$HOME/dotfiles/secrets/todoist.token"
-          if [ ! -f "$TOKEN_FILE" ]; then
-            echo "➤ Missing Token File"
-            exit 0
-          fi
-          
+    if [ ! -f "$TOKEN_FILE" ]; then
+      echo "➤ Missing Token File"
+      exit 0
+    fi
+        
     FALLBACK_TOKEN=$(cat "$TOKEN_FILE" | ${pkgs.coreutils}/bin/tr -d '[:space:]')
     todo() {
         local TOKEN="''${TODOIST_TOKEN:-$FALLBACK_TOKEN}"
@@ -70,23 +70,32 @@ let
             return 1
         fi
     
+        # Get today's date in YYYY-MM-DD format for jq comparison
+        local today
+        today=$(date +%Y-%m-%d)
+
         local raw_output
-        raw_output=$(echo "$response" | ${pkgs.jq}/bin/jq -r '
+        raw_output=$(echo "$response" | ${pkgs.jq}/bin/jq -r --arg today "$today" '
             .items 
             | sort_by(.due.date // "2099-12-31") 
             | .[] 
-            | select(.checked == false and .is_deleted == false) 
+            | select(
+                .checked == false 
+                and .is_deleted == false 
+                and .due != null 
+                and (.due.date[0:10] <= $today)
+              ) 
             | "\(.id)|\(if .parent_id then "   ↳ " else "" end)\(.content)|\(.due.date // "No Date")"
         ')
     
         if [ -z "$raw_output" ]; then
-            if [ -t 1 ]; then echo "No tasks found."; fi
+            if [ -t 1 ]; then echo "No urgent or today tasks found."; fi
             return 0
         fi
     
         if [ -t 1 ]; then
             echo "----------------------------------------"
-            echo "  TODO LIST (ALL)"
+            echo "  TODO LIST (TODAY & OVERDUE)"
             echo "----------------------------------------"
         fi
     

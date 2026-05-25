@@ -13,14 +13,21 @@ in {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true; # Saves bandwidth!
+      localNetworkGameTransfers.openFirewall = true;
     };
 
     hardware.steam-hardware.enable = true;
     hardware.graphics.enable32Bit = true;
 
+    hardware.xpadneo.enable = true; 
+    services.udev.extraRules = ''
+      KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
+    '';
+
     environment.systemPackages = with pkgs; [
       protonup-ng
+      # 2. Handy tool to test your buttons outside of a game
+      gamepad-tool 
     ];
 
     environment.sessionVariables = {
