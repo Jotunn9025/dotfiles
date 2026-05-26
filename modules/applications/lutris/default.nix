@@ -13,8 +13,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      unstable.lutris 
-      
+      #unstable.lutris 
+      pkgs.lutris
       pkgs.wineWowPackages.stable
       pkgs.winetricks
       pkgs.vulkan-tools
