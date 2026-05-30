@@ -16,6 +16,8 @@ let
     "todoist"
     "conky"
     "todo-cli"
+    "obsidian"
+    "foundryvtt"
     #"antigravity"
     #"anki"
     #"calibre"
