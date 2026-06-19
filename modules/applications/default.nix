@@ -17,10 +17,11 @@ let
     "conky"
     "todo-cli"
     "obsidian"
-    "foundryvtt"
-    #"antigravity"
+    #"foundryvtt"
+    "antigravity"
     #"anki"
     #"calibre"
+    "solaar"
   ];
 
   contents = builtins.readDir ./.;

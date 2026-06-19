@@ -4,12 +4,13 @@
   imports = [
     ./desktop
     ./networking
+    ./bluetooth
   ];
 
   system.desktop.enable = true;
   system.networking.enable = true;
   system.networking.hostName = "nixos";
-  
+  system.bluetooth.enable = true;
   environment.variables = {
     BROWSER = "firefox";
   };

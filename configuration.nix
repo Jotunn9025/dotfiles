@@ -14,6 +14,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernel.sysctl."kernel.sysrq" = 1;
 
   # Time and Locale
   time.timeZone = "Asia/Kolkata";
@@ -28,7 +29,7 @@
   users.users.youhan = {
     isNormalUser = true;
     description = "Youhan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "plugdev"];
     packages = with pkgs; [ pkgs.gedit ];
   };
 
