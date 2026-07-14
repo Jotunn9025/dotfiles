@@ -10,6 +10,7 @@ in {
 
   config = mkIf cfg.enable {
     virtualisation.docker.enable = true;
+    virtualisation.docker.package = pkgs.docker_29;
 
     virtualisation.oci-containers.backend = "docker";
     virtualisation.oci-containers.containers.foundryvtt = {
@@ -29,8 +30,9 @@ in {
       };
     };
 
+    # Fixed permission mapping for user 1000:1000
     systemd.tmpfiles.rules = [
-      "d /var/lib/foundryvtt 0770 root docker -"
+      "d /var/lib/foundryvtt 0770 1000 1000 -"
     ];
   };
 }

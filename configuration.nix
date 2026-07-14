@@ -16,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
-  # Time and Locale
+  # Time and Locale 
   time.timeZone = "Asia/Kolkata";
   i18n.defaultLocale = "en_IN";
   i18n.extraLocaleSettings = {
