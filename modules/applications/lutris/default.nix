@@ -15,7 +15,7 @@ in {
     environment.systemPackages = [
       #unstable.lutris 
       pkgs.lutris
-      pkgs.wineWowPackages.stable
+      pkgs.wineWow64Packages.stable
       pkgs.winetricks
       pkgs.vulkan-tools
       pkgs.vkd3d

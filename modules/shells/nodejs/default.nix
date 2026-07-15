@@ -7,8 +7,8 @@ let
     nodejs_22
     corepack
     typescript
-    nodePackages.typescript-language-server
-    nodePackages.vscode-langservers-extracted
+    typescript-language-server
+    vscode-langservers-extracted
     bun
     watchman
   ];

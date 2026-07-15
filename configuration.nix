@@ -34,7 +34,7 @@
   };
 
   home-manager.users.youhan = {
-    home.stateVersion = "25.11";
+    home.stateVersion = "26.05";
     programs.bash.enable = true;
     programs.home-manager.enable = true;
   };
@@ -42,5 +42,5 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "26.05"; 
 }
